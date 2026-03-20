@@ -15,7 +15,7 @@
   --calc-reset-border: #2f477c;
   --calc-reset-text: #cadbff;
   max-width: 820px;
-  width: 100%;
+  width: 51%;
   min-height: calc(100vh - 40px);
   margin: 20px auto;
   padding: 64px 28px 48px;
