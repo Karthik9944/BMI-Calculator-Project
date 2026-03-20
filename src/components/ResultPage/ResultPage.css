@@ -1,0 +1,330 @@
+.result-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: var(--page-gradient);
+}
+
+.result-card {
+  width: min(50vw, 820px);
+  min-width: 320px;
+  background: var(--surface);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow:
+    0 24px 50px rgba(15, 23, 42, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.32);
+  animation: slideUp 0.5s ease;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.25s ease;
+}
+
+.result-card:hover {
+  box-shadow: 0 24px 44px rgba(15, 23, 42, 0.26);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1em;
+  cursor: pointer;
+  padding: 5px 10px;
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.back-button:hover {
+  color: var(--accent);
+  transform: translateX(-2px);
+}
+
+.result-title {
+  color: var(--text-main);
+  font-family: var(--font-display);
+  margin-bottom: 30px;
+  font-size: 2em;
+  text-align: center;
+}
+
+.bmi-circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  border: 4px solid white;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    0 14px 24px rgba(15, 23, 42, 0.24);
+}
+
+.bmi-number {
+  font-size: 3em;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.bmi-unit {
+  font-size: 0.9em;
+  color: var(--text-muted);
+  margin-top: 5px;
+}
+
+.category-badge {
+  display: inline-block;
+  padding: 8px 25px;
+  border-radius: 25px;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1em;
+  margin: 0 auto 20px;
+  text-align: center;
+  width: fit-content;
+  box-shadow: 0 10px 18px rgba(15, 23, 42, 0.25);
+}
+
+.bmi-description {
+  color: var(--text-main);
+  margin-bottom: 25px;
+  line-height: 1.6;
+  font-size: 1.1em;
+  text-align: center;
+}
+
+.measurements-box {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  background: var(--surface-2);
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow:
+    inset 0 0 0 1px rgba(102, 126, 234, 0.08),
+    0 10px 18px rgba(15, 23, 42, 0.13);
+}
+
+.measurement-item {
+  text-align: center;
+}
+
+.measurement-label {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.9em;
+  margin-bottom: 5px;
+}
+
+.measurement-value {
+  display: block;
+  color: var(--text-main);
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.range-info {
+  text-align: center;
+  margin-bottom: 25px;
+  padding: 15px;
+  background: rgba(45, 227, 211, 0.16);
+  border-radius: 8px;
+  color: #8ffaf0;
+}
+
+.bmi-scale-container {
+  margin: 30px 0;
+}
+
+.bmi-scale-container h3 {
+  color: var(--text-main);
+  margin-bottom: 15px;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.scale-bar {
+  display: flex;
+  height: 70px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 10px;
+  box-shadow: 0 10px 16px rgba(15, 23, 42, 0.18);
+}
+
+.scale-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.8em;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.3;
+  padding: 5px;
+}
+
+.scale-section.underweight {
+  background-color: #FFA500;
+}
+
+.scale-section.normal {
+  background-color: #4CAF50;
+}
+
+.scale-section.overweight {
+  background-color: #FFD700;
+}
+
+.scale-section.obese {
+  background-color: #FF4444;
+}
+
+.scale-indicator {
+  position: absolute;
+  top: -15px;
+  width: 4px;
+  height: 100px;
+  background-color: var(--text-main);
+  transform: translateX(-50%);
+  transition: left 0.3s ease;
+}
+
+.indicator-label {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--text-main);
+  color: white;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.8em;
+  white-space: nowrap;
+}
+
+.health-tips {
+  text-align: left;
+  padding: 20px;
+  background: var(--surface-2);
+  border-radius: 10px;
+  margin: 20px 0;
+  box-shadow:
+    inset 0 0 0 1px rgba(102, 126, 234, 0.08),
+    0 10px 18px rgba(15, 23, 42, 0.13);
+}
+
+.health-tips h3 {
+  color: var(--text-main);
+  margin-bottom: 15px;
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.tips-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tips-list li {
+  margin: 10px 0;
+  padding-left: 25px;
+  position: relative;
+  color: var(--text-main);
+  line-height: 1.4;
+}
+
+.tips-list li:before {
+  content: "\2713";
+  color: #4CAF50;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.check-again-btn {
+  width: 100%;
+  padding: 15px;
+  background: var(--brand-gradient);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: filter 0.2s ease;
+  margin-top: 20px;
+}
+
+.check-again-btn:hover {
+  filter: brightness(1.03);
+}
+
+@media (max-width: 900px) {
+  .result-card {
+    width: min(72vw, 700px);
+  }
+}
+
+@media (max-width: 480px) {
+  .result-card {
+    width: 100%;
+    padding: 25px;
+  }
+  
+  .bmi-circle {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .bmi-number {
+    font-size: 2.5em;
+  }
+  
+  .measurements-box {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .scale-section {
+    font-size: 0.7em;
+  }
+  
+  .back-button {
+    top: 15px;
+    left: 15px;
+  }
+  
+  .result-title {
+    font-size: 1.8em;
+    margin-top: 20px;
+  }
+}
