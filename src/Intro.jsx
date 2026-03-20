@@ -48,7 +48,7 @@ const Intro = () => {
         </section>
 
         <section className="preview-panel">
-          <div className="preview-topbar">
+          <div className="preview-top-bar">
             <span />
             <span />
             <span />

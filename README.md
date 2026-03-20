@@ -50,8 +50,8 @@ The application follows a modular architecture for scalability:
 src/
 ├── components/         # UI Components
 │   ├── Auth/           # Login & Signup forms
-│   ├── BMIcalculator/  # Input & Core Logic
-│   └── ResultPage/     # Category Display & Histoy
+│   ├── BMI Calculator/ # Input & Core Logic
+│   └── ResultPage/     # Category Display & History
 ├── context/            # Global State (AuthContext)
 ├── utils/              # Calculation helpers
 ├── App.js              # Routing & Root Configuration
