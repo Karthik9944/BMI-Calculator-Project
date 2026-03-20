@@ -1,9 +1,11 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Intro.css';
+import bmiChart from './assets/bmi-chart.png';
 
 const Intro = () => {
+  const [showModal, setShowModal] = useState(false);
   return (
     <div className="intro-page">
       <div className="bg-orb orb-one" />
@@ -39,6 +41,9 @@ const Intro = () => {
             <Link to="/signup" className="hero-btn hero-btn-outline">
               Create Account
             </Link>
+            <button onClick={() => setShowModal(true)} className="hero-btn hero-btn-outline bmi-table-btn">
+              View BMI Table
+            </button>
           </div>
         </section>
 
@@ -97,6 +102,20 @@ const Intro = () => {
           </p>
         </article>
       </section>
+
+      {showModal && (
+        <div className="modal-overlay" onClick={() => setShowModal(false)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={() => setShowModal(false)} aria-label="Close">
+              &times;
+            </button>
+            <div className="modal-body">
+              <h2 className="modal-title">BMI Reference Chart</h2>
+              <img src={bmiChart} alt="BMI Reference Table" className="modal-image" />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

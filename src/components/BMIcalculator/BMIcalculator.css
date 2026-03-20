@@ -262,6 +262,29 @@
   filter: brightness(0.95);
 }
 
+.table-popup-btn {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid #3a5495;
+  background: rgba(18, 38, 80, 0.85);
+  color: var(--calc-label);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+.table-popup-btn:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+[data-theme='light'] .table-popup-btn {
+  background: #f4f8ff;
+  border-color: #c5d8ff;
+}
+
 .info-box {
   margin-top: 30px;
   padding: 20px;
@@ -328,6 +351,61 @@
   text-align: right;
 }
 
+.table-popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 10, 24, 0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.table-popup-card {
+  width: min(100%, 920px);
+  max-height: 90vh;
+  overflow: auto;
+  background: linear-gradient(180deg, #10244d 0%, #0a1b3b 100%);
+  border: 1px solid #35518f;
+  border-radius: 20px;
+  padding: 24px;
+  position: relative;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme='light'] .table-popup-card {
+  background: linear-gradient(180deg, #ffffff 0%, #eef5ff 100%);
+  border-color: #bfd4ff;
+}
+
+.table-popup-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  border: none;
+  background: transparent;
+  color: var(--calc-label);
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.table-popup-title {
+  margin: 0 0 18px;
+  color: var(--calc-label);
+  font-size: 1.4rem;
+  padding-right: 28px;
+  text-align: center;
+}
+
+.table-popup-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+}
+
 @media (max-width: 480px) {
   .bmi-calculator {
     min-height: calc(100vh - 24px);
@@ -352,6 +430,10 @@
   .user-info {
     width: 100%;
     min-width: 0;
+  }
+
+  .table-popup-card {
+    padding: 20px 16px;
   }
 
 }

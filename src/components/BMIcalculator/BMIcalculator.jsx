@@ -2,18 +2,16 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { calculateBMI, getBMICategory } from '../../utils/calculations';
+import bmiChart from '../../assets/bmi-chart.png';
 import './BMIcalculator.css';
 
 const BMIcalculator = () => {
   const [weight, setWeight] = useState('');
   const [height, setHeight] = useState('');
   const [error, setError] = useState('');
+  const [showTablePopup, setShowTablePopup] = useState(false);
   const navigate = useNavigate();
-  const {
-    user,
-    logout,
-    addBMIHistory
-  } = useAuth();
+  const { user, logout, addBMIHistory } = useAuth();
 
   const handleWeightChange = (e) => {
     const value = e.target.value;
@@ -179,6 +177,10 @@ const BMIcalculator = () => {
         </button>
       </div>
 
+      <button onClick={() => setShowTablePopup(true)} className="table-popup-btn">
+        View BMI Table
+      </button>
+
       <div className="info-box">
         <p>Enter your details to get instant results.</p>
         <p>Get personalized health tips based on your BMI category.</p>
@@ -210,6 +212,28 @@ const BMIcalculator = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      )}
+
+      {showTablePopup && (
+        <div className="table-popup-overlay" onClick={() => setShowTablePopup(false)}>
+          <div
+            className="table-popup-card"
+            onClick={(event) => event.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="bmi-table-title"
+          >
+            <button
+              className="table-popup-close"
+              onClick={() => setShowTablePopup(false)}
+              aria-label="Close BMI table"
+            >
+              &times;
+            </button>
+            <h2 id="bmi-table-title" className="table-popup-title">BMI Reference Table</h2>
+            <img src={bmiChart} alt="BMI Reference Table" className="table-popup-image" />
           </div>
         </div>
       )}
